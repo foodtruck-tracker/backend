@@ -2,6 +2,7 @@
 Login endpoint
 
 POST - /api/auth/login
+
 | Name     | Type   | Required | Unique | Notes |
 |----------|--------|----------|--------|-------|
 | username | string | yes      | yes    |       |
