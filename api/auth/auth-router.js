@@ -4,11 +4,9 @@ const jwt = require('jsonwebtoken');
 
 const Users = require('../models/users-model.js');
 
-// Load error handling and validation for inputs
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
-// for endpoints beginning with /api/auth
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -26,16 +24,15 @@ router.post('/register', (req, res) => {
       if (user1) {
         res
           .status(409)
-          .json({ username: 'A user with that name already exists' });
+          .json({ username: 'That user already exists' });
       } else {
         Users.add(user).then(saved => {
           Users.findBy({ username: user.username })
             .first()
             .then(user => {
               const token = generateToken(user);
-              // console.log(token);
               res.status(201).json({
-                message: `Welcome ${user.username}!`,
+                message: `Hello, ${user.username}!`,
                 token
               });
             })
@@ -63,15 +60,15 @@ router.post('/login', (req, res) => {
         const token = generateToken(user);
         console.log(token);
         res.status(200).json({
-          message: `Welcome ${user.username}!`,
+          message: `Hello, ${user.username}!`,
           token
         });
       } else {
         if (!user) {
-          errors.username = 'That username does not exist';
+          errors.username = 'That username does not exist, would you like to register?';
         }
         if (user && !bcrypt.compareSync(password, user.password)) {
-          errors.password = 'Login failed';
+          errors.password = 'Login failed, invalid password';
         }
         return res.status(400).json(errors);
       }
@@ -82,7 +79,6 @@ router.post('/login', (req, res) => {
 });
 
 function generateToken(user) {
-  // console.log("user: ", user);
   const jwtPayload = {
     subject: user.id,
     username: user.username,

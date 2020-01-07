@@ -7,10 +7,8 @@ module.exports = (req, res, next) => {
   if (token) {
     jwt.verify(token, secret, {}, (err, decoded) => {
       if (err) {
-        //invalid token
-        res.status(401).json({ you: 'shall not pass' });
+        res.status(401).json({ token: 'You shall not pass!' });
       } else {
-        //valid token
 
         req.jwt = {
           username: decoded.username,
@@ -22,6 +20,6 @@ module.exports = (req, res, next) => {
       }
     });
   } else {
-    res.status(401).json({ you: 'no token provided' });
+    res.status(401).json({ token: 'No token provided' });
   }
 };
