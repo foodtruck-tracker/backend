@@ -5,8 +5,9 @@ POST - /api/auth/login
 | Name     | Type   | Required | Unique | Notes |
 |----------|--------|----------|--------|-------|
 | username | string | yes      | yes    |       |
-| password | string | yes      | no     |Stored as a hash       |
+| password | string | yes      | no     |       |
 Returns a token to be stored for authentication
+
 
 Register endpoint
 
