@@ -9,7 +9,9 @@ const trucksRouter = require('./api/routes/trucks-router.js');
 const server = express();
 
 server.use(helmet());
-server.use(cors());
+server.use(cors({credentials: true,
+  origin: "localhost:3300/"
+  }));
 server.use(express.json());
 
 server.use('/api/auth', authRouter);
