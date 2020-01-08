@@ -10,7 +10,7 @@ const server = express();
 
 server.use(helmet());
 server.use(cors({credentials: true,
-  origin: "localhost:3000/"
+  origin: "http://localhost:3000"
   }));
 server.use(express.json());
 
