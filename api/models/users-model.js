@@ -30,7 +30,7 @@ async function findById(userId) {
   const user = await db('users')
     .where({ 'users.id': userId })
     .first()
-    .select('username', 'role', 'latitude', 'longitude', 'id');
+    .select('username', 'role', 'city', 'id');
 
   console.log(user);
 

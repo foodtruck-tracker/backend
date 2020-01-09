@@ -6,8 +6,7 @@ exports.up = function(knex) {
     users.string('password', 128).notNullable();
 
     users.integer('role').notNullable();
-    users.float('latitude');
-    users.float('longitude');
+    users.string('city');
   });
 };
 

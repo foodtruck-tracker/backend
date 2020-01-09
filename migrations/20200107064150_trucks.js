@@ -13,14 +13,8 @@ exports.up = function(knex) {
     trucks.string('name').notNullable();
     trucks.string('description');
     trucks.string('cuisine').notNullable();
-    trucks.string('imageUrl')
-    trucks.string('latitude').notNullable();
-    trucks.string('longitude').notNullable();
-
-    trucks.string('latitude_next');
-    trucks.string('longitude_next');
-    trucks.string('arrival');
-    trucks.string('departure');
+    trucks.string('imageUrl');
+    trucks.string('city');
   });
 };
 

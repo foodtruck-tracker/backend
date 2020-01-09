@@ -17,10 +17,10 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: "./migrations"
+      directory: "./data/migrations"
     },
     seeds: {
-      directory: "./seeds"
+      directory: "./data/seeds"
     }
   }
 
