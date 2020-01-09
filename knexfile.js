@@ -27,11 +27,7 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: {
-      database: process.env.DATABASE_URL,
-      user:     'username',
-      password: 'password'
-    },
+    connection: process.env.DATABASE_URL || {filename: "dev.sqlite3"},
     pool: {
       min: 2,
       max: 10
