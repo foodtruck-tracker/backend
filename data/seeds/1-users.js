@@ -1,25 +1,22 @@
 exports.seed = function(knex) {
   return knex('users').insert([
     {
-      username: 'operator1',
+      username: 'aoperator1',
       password: 'op1pass',
       role: 1,
-      latitude: '5',
-      longitude: '1'
+      city: "Gillette"
     },
     {
-      username: 'operator2',
+      username: 'boperator2',
       password: 'op2pass',
       role: 1,
-      latitude: '5',
-      longitude: '1'
+      city: "Casper"
     },
     {
-      username: 'diner1',
+      username: 'adiner1',
       password: 'diner1pass',
       role: 2,
-      latitude: '5',
-      longitude: '1'
+      city: "Sheridan"
     }
   ]);
 };

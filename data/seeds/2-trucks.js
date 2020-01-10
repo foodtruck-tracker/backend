@@ -2,21 +2,21 @@ exports.seed = function(knex) {
   return knex('trucks').insert([
     {
       operator_id: 1,
+      name: "Gillette Thai",
       cuisine: 'thai',
-      current_latitude: '5',
-      current_longitude: '5'
+      city: "Gillette"
     },
     {
       operator_id: 1,
+      name: "Gillette Mexican",
       cuisine: 'mexican',
-      current_latitude: '1',
-      current_longitude: '1'
+      city: "Gillette"
     },
     {
       operator_id: 2,
+      name: "Casper Pizza",
       cuisine: 'pizza',
-      current_latitude: '2',
-      current_longitude: '5'
+      city: "Casper"
     }
   ]);
 };
